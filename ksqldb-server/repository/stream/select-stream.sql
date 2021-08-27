@@ -1,0 +1,1 @@
+select * from mysqlnewsrc emit changes;

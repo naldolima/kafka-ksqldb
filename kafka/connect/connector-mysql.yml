@@ -1,0 +1,20 @@
+apiVersion: "kafka.strimzi.io/v1beta2"
+kind: "KafkaConnector"
+metadata:
+  name: "my-database-connector"
+  labels:
+    strimzi.io/cluster: my-connect-cluster
+spec:
+  class: io.debezium.connector.mysql.MySqlConnector
+  tasksMax: 1
+  config:
+    database.hostname: 10.106.97.221 # your ip mysql
+    database.port: "3306"
+    database.user: "root" # your user 
+    database.password: "LYkrwYJIyT" # your password
+    database.server.id: "184054"
+    database.server.name: "mysqlnew"
+    database.whitelist: "my_database"
+    database.history.kafka.bootstrap.servers: "my-cluster-kafka-bootstrap:9092"
+    database.history.kafka.topic: "schema-changes.mysqlnew"
+    include.schema.changes: "true" 
